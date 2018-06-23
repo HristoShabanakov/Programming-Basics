@@ -6,9 +6,9 @@ namespace _03.CatTrainingAttendance
     {
         static void Main()
         {
-            int start = int.Parse(Console.ReadLine());
-            int presence = int.Parse(Console.ReadLine());
-            int minutes = int.Parse(Console.ReadLine());
+            int startTime = int.Parse(Console.ReadLine());
+            int hoursCheckIn = int.Parse(Console.ReadLine());
+            int minutesCheckIn = int.Parse(Console.ReadLine());
             string day = Console.ReadLine();
 
             double bonusPoints = 0;
@@ -25,21 +25,23 @@ namespace _03.CatTrainingAttendance
             {
                 bonusPoints += 2;
             }
+            //If the training starts at 17:00(included) until 18:00
+            if (hoursCheckIn < startTime && startTime <= (startTime - 1))
+            {
+               bonusPoints += 1.5;
+            }
+            //Starts at 18:00(included) until 18:30
+            else if (hoursCheckIn == startTime && minutesCheckIn <= 30)
+            {
+                bonusPoints += 1;
+            }
+            //Starts at 18:30 until 22:30(included)
+            else if (hoursCheckIn == startTime && minutesCheckIn > 30 || hoursCheckIn < (hoursCheckIn + 4))
+            {
+                bonusPoints += 0.5;
+            }
 
-            if (start >= 17 && presence <= 18 && minutes > 00)
-            {
-                Console.WriteLine(bonusPoints += 1.5);
-            }
-            else if (start >= 18 && presence <= 18 && minutes > 30)
-            {
-                Console.WriteLine(bonusPoints += 1);
-            }
-            else if (start >= 18 && presence <= 22 && minutes > 00)
-            {
-                Console.WriteLine(bonusPoints += 0.5);
-            }
-
-            //Console.WriteLine($"{bonusPoints:f2}");
+            Console.WriteLine($"{bonusPoints:f2}");
         }
     }
 }
