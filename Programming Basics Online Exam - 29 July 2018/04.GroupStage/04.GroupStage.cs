@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _04.GroupStage
 {
@@ -14,7 +10,6 @@ namespace _04.GroupStage
             double matches = double.Parse(Console.ReadLine());
             double wins = 0;
             double draws = 0;
-            double goalsDifference = 0;
             double scored = 0;
             double received = 0;
 
@@ -28,20 +23,17 @@ namespace _04.GroupStage
                     wins += 3;
                     scored += scoredGoals;
                     received += receivedGoals;
-                    //goalsDifference += scoredGoals - receivedGoals;
                 }
                 else if (scoredGoals == receivedGoals)
                 {
                     draws += 1;
                     scored += scoredGoals;
                     received += receivedGoals;
-                    //goalsDifference += scoredGoals - receivedGoals;
                 }
                 else if (scoredGoals < receivedGoals)
                 {
                     scored += scoredGoals;
                     received += receivedGoals;
-                    //goalsDifference += scoredGoals - receivedGoals;
                 }
             }
             double points = wins + draws;
@@ -56,9 +48,6 @@ namespace _04.GroupStage
                 Console.WriteLine($"{country} has been eliminated from the group phase.");
                 Console.WriteLine($"Goal difference: {scored - received}.");
             }
-
-            //Console.WriteLine($"{points} points");
-            //Console.WriteLine($"{goalsDifference} goals");
         }
     }
 }
