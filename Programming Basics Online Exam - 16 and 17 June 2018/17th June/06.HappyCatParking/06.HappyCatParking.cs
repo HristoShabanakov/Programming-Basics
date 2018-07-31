@@ -37,7 +37,7 @@ namespace _06.HappyCatParking
                 Console.WriteLine($"Day: {daysCount} - {currentSum:f2} leva");
                 currentSum = 0;
             }
-            Console.WriteLine($"Total: {totalSum:f2}");
+            Console.WriteLine($"Total: {totalSum:f2} leva");
         }
     }
 }
